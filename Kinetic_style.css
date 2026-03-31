@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  background: #050505;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* 🔮 BLOBS */
+.blob-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #ff8bdc, #c8a6ff, #7aa6ff);
+  filter: blur(1px);
+  animation: float 10s infinite alternate ease-in-out;
+}
+
+/* Glow */
+.blob::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  border-radius: inherit;
+  filter: blur(60px);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+/* Blob variations */
+.b1 {
+  width: 300px;
+  height: 150px;
+  top: 20%;
+  left: 10%;
+}
+
+.b2 {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 60%;
+  border-radius: 50%;
+}
+
+.b3 {
+  width: 500px;
+  height: 150px;
+  top: 70%;
+  left: 20%;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateX(1000px) }
+  100% { transform: translateX(40px) }
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: (20px);
+}
+
+.title {
+  font-size: 60px;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.subtitle {
+  font-size: 20px;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* CONTENT */
+.content {
+  padding: 100px;
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  padding: 40px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(100px);
+  transition: 0.5s;
+}
